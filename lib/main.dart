@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Scaffold(
+      child: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: _getImage,
           child: Icon(
