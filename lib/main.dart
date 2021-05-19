@@ -27,36 +27,38 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: _getImage,
-        child: Icon(
-          Icons.photo,
+    return SafeArea(
+          child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: _getImage,
+          child: Icon(
+            Icons.photo,
+          ),
         ),
-      ),
-      body: isLoading
-          ? Center(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.green,
-              ),
-            )
-          : (_imageFile == null)
-              ? Center(
-                  child: Text(
-                    'No Image Selected',
-                  ),
-                )
-              : Center(
-                  child: FittedBox(
-                    child: SizedBox(
-                      width: _image.width.toDouble(),
-                      height: _image.height.toDouble(),
-                      child: CustomPaint(
-                        painter: FacePainter(_image, _faces),
+        body: isLoading
+            ? Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.green,
+                ),
+              )
+            : (_imageFile == null)
+                ? Center(
+                    child: Text(
+                      'No Image Selected',
+                    ),
+                  )
+                : Center(
+                    child: FittedBox(
+                      child: SizedBox(
+                        width: _image.width.toDouble(),
+                        height: _image.height.toDouble(),
+                        child: CustomPaint(
+                          painter: FacePainter(_image, _faces),
+                        ),
                       ),
                     ),
                   ),
-                ),
+      ),
     );
   }
 
